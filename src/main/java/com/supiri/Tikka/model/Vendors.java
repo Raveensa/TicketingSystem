@@ -1,18 +1,35 @@
 package com.supiri.Tikka.model;
 
-public class Vendor {
+import CLI.TicketPool;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class Vendors
+{
+    @Id
     private int vendorID;
     private String vendorName;
     private String username;
     private String password;
     private String gmail;
 
-    public Vendor(int vendorID, String vendorName, String username, String password, String gmail){
+    public Vendors(int vendorID, String vendorName, String username, String password, String gmail){
         this.vendorID=vendorID;
         this.vendorName=vendorName;
         this.username=username;
         this.password=password;
         this.gmail=gmail;
+    }
+
+    public Vendors() {
+
+    }
+
+    public Vendors(int i, int vendorTickets, int ticketReleaseRate, TicketPool ticketPool) {
+    }
+
+    public Vendors(int totalTickets, TicketPool ticketPool, int ticketReleaseRate) {
     }
 
     public int getVendorID() {

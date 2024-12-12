@@ -1,6 +1,11 @@
 package com.supiri.Tikka.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Organizer {
+    @Id
     private int organizerID;
     private String organizerName;
     private String username;
@@ -13,6 +18,10 @@ public class Organizer {
         this.username=username;
         this.password=password;
         this.gmail=gmail;
+    }
+
+    public Organizer() {
+
     }
 
     public int getOrganizerID() {

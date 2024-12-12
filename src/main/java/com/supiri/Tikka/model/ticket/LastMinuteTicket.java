@@ -1,13 +1,12 @@
 package com.supiri.Tikka.model.ticket;
 
 
-public class EarlyBirdTicket {
+public class LastMinuteTicket{
 
     private int numberOfTickets;
     private float discount;
 
-
-    public EarlyBirdTicket() {}
+    public LastMinuteTicket() {}
 
 
     public int getNumberOfTickets() {
@@ -21,7 +20,6 @@ public class EarlyBirdTicket {
     public float getDiscount() {
         return discount;
     }
-
     public void setDiscount(float discount) {
         this.discount = discount;
     }
