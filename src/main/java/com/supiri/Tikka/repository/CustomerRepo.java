@@ -1,7 +1,21 @@
 package com.supiri.Tikka.repository;
 
-import com.supiri.Tikka.model.Customer;
+import com.OOP.CW.Backend.Model.Users.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CustomerRepo extends JpaRepository <Customer, String> {
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface CustomerRepo extends JpaRepository<Customer, Integer> {
+
+    Optional<Customer> findByUserCredentials_EmailAndUserCredentials_Password(String email, String password);
+
+    Optional<Customer> findByUserCredentials_Email(String email);
+
+    Optional<Customer> findById(Integer customerID);
+
+
+
 }

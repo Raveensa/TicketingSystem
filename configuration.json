@@ -1,0 +1,31 @@
+{
+  "ticketPoolCapacity" : 10,
+  "numberOfVendors" : 3,
+  "vendors" : [ {
+    "vendorId" : 0,
+    "tickets" : 2,
+    "releaseRate" : 1000
+  }, {
+    "vendorId" : 1,
+    "tickets" : 4,
+    "releaseRate" : 1000
+  }, {
+    "vendorId" : 2,
+    "tickets" : 4,
+    "releaseRate" : 2000
+  } ],
+  "numberOfCustomers" : 4,
+  "customers" : [ {
+    "customerId" : "Customer ID-0",
+    "ticketQuantity" : 2
+  }, {
+    "customerId" : "Customer ID-1",
+    "ticketQuantity" : 2
+  }, {
+    "customerId" : "Customer ID-2",
+    "ticketQuantity" : 3
+  }, {
+    "customerId" : "Customer ID-3",
+    "ticketQuantity" : 4
+  } ]
+}

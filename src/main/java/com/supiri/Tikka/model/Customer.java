@@ -19,6 +19,10 @@ public class Customer {
         this.ticketNo=ticketNo;
     }
 
+    public Customer() {
+
+    }
+
     public String getCustomerName() {
         return customerName;
     }

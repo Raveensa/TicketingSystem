@@ -1,41 +1,95 @@
 package com.supiri.Tikka.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.OOP.CW.Backend.Model.Users.Organizer;
+import jakarta.persistence.*;
+
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 @Entity
 public class Event {
-    private String eventname;
-    private int eventdate;
-    private String eventlocation;
 
-    public Event(String eventlocation, String eventname, int eventdate){
-        this.eventdate=eventdate;
-        this.eventlocation=eventlocation;
-        this.eventname=eventname;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int eventID;
+    private String eventName;
+    private String eventLocation;
+    private double eventPrice;
+    @ManyToOne
+    @JoinColumn(name = "organizerID", nullable = false)
+    private Organizer organizer;
+    @OneToOne
+    @JoinColumn(name = "ticketPoolId", nullable = false)
+    private TicketPool ticketPool;
+    @Embedded
+    private Configuration configuration;
+
+
+    public Event(){}
+
+    public Event(String eventName, LocalDate eventDate, LocalTime eventTime, String eventLocation, double eventPrice, Organizer organizer, int maxTicketCapacity ) {
+        this.eventName = eventName;
+        this.eventLocation = eventLocation;
+        this.eventPrice = eventPrice;
+        this.organizer = organizer;
+        this.configuration = new Configuration(maxTicketCapacity);
     }
 
-    public int getEventdate() {
-        return eventdate;
+    public int getEventID() {
+        return eventID;
     }
 
-    public void setEventdate(int eventdate) {
-        this.eventdate = eventdate;
+    public void setEventID(int eventID) {
+        this.eventID = eventID;
     }
 
-    public String getEventname() {
-        return eventname;
+    public String getEventName() {
+        return eventName;
     }
 
-    public void setEventname(String eventname) {
-        this.eventname = eventname;
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
-    public String getEventlocation() {
-        return eventlocation;
+    public String getEventLocation() {
+        return eventLocation;
     }
 
-    public void setEventlocation(String eventlocation) {
-        this.eventlocation = eventlocation;
+    public void setEventLocation(String eventLocation) {
+        this.eventLocation = eventLocation;
+    }
+
+    public double getEventPrice() {
+        return eventPrice;
+    }
+
+    public void setEventPrice(double eventPrice) {
+        this.eventPrice = eventPrice;
+    }
+
+    public Organizer getOrganizer() {
+        return organizer;
+    }
+
+    public void setOrganizer(Organizer organizer) {
+        this.organizer = organizer;
+    }
+
+    public TicketPool getTicketPool() {
+        return ticketPool;
+    }
+
+    public void setTicketPool(TicketPool ticketPool) {
+        this.ticketPool = ticketPool;
+    }
+
+    public Configuration getConfiguration() {
+        return configuration;
+    }
+
+    public void setConfiguration(Configuration configuration) {
+        this.configuration = configuration;
     }
 }
